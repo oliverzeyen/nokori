@@ -20,9 +20,9 @@ module Nokori
 
     def configuration
       @configuration || #if defined?(Rails)
-                        #  File.join(Rails.root, 'spec', 'stale_fish.yml')
+                        #  File.join(Rails.root, 'spec', 'nokori.yml')
                         #else
-                          'stale_fish.yml'
+                          'nokori.yml'
                         #end
     end
 
