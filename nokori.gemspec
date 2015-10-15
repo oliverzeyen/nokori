@@ -1,34 +1,21 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'nokori/version'
+$:.push File.expand_path("../lib", __FILE__)
 
-Gem::Specification.new do |spec|
-  spec.name          = "nokori"
-  spec.version       = Nokori::VERSION
-  spec.authors       = ["Oliver Zeyen"]
-  spec.email         = ["oliver.zeyen@hitfoxgroup.com"]
+Gem::Specification.new do |s|
+  s.name = %q{nokori}
+  s.version = "0.1.0"
+  s.authors = ["Oliver Zeyen"]
+  s.date = %q{2015-10-15}
+  s.email = %q{oliver.zeyen@gmail.com}
+  s.homepage = %q{https://github.com/oliverzeyen/nokori}
+  s.summary = "Stub HTTP responses"
+  s.description = "Stub HTTP responses"
+  s.rdoc_options = ["--charset=UTF-8"]
+  s.require_paths = ["lib"]
 
-  spec.summary       = %q{Small Rack-based Server to test API Calls against}
-  spec.description   = %q{Small Rack-based Server to test API Calls against}
-  spec.homepage      = "https://github.com/oliverzeyen/nokori"
-  spec.license       = "MIT"
+  s.files = `git ls-files`.split("\n")
+  s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
 
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
-
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
-
-  spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rack"
+  s.add_dependency(%q<fakeweb>, [">= 0"])
+  s.add_dependency(%q<activesupport>, [">= 0"])
 end
+
